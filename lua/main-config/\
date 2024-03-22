@@ -1,0 +1,14 @@
+require("main-config.opts")
+require("main-config.lazy.bootstrap")
+
+local lazy = require("lazy")
+local plugins = require("main-config.lazy.plugins")
+local opts = require("main-config.lazy.opts")
+local colorscheme = require("main-config.colorscheme")
+
+for plugin in colorscheme.schemes do
+    plugins.insert(plugin)
+end
+
+lazy.setup(plugins, opts)
+colorscheme.setup()
