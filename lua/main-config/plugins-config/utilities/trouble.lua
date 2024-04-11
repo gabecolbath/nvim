@@ -13,7 +13,7 @@ local dependencies = {
 }
 
 local opts = {
-    position = "bottom", -- position of the list can be: bottom, top, left, right
+    position = "right", -- position of the list can be: bottom, top, left, right
     height = 10, -- height of the trouble list when position is top or bottom
     width = 50, -- width of the list when position is left or right
     icons = true, -- use devicons for filenames
@@ -59,13 +59,13 @@ local opts = {
     include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions"  }, -- for the given modes, include the declaration of the current symbol in the results
     signs = {
         -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "",
+        error = "!",
+        warning = "󰈻",
+        hint = "󰌵",
+        information = "i",
+        other = "󰍻",
     },
-    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+    use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
 }
 
 return {

@@ -9,40 +9,50 @@
 --   "Y8888P"  888       888 888       
 
 local config = function()
-    -- Set up nvim-cmp.
-    local cmp = require'cmp'
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
 
     cmp.setup({
         snippet = {
-            -- REQUIRED - you must specify a snippet engine
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-                -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+                luasnip.lsp_expand(args.body) -- For `luasnip` users.
             end,
         },
         window = {
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
+            completion = cmp.config.window.bordered({
+                border = "single",
+                scrollbar = false,
+                scrolloff = 5,
+            }),
+            documentation = cmp.config.window.bordered({
+                border = "single",
+                scrollbar = false,
+            }),
         },
-        mapping = cmp.mapping.preset.insert({
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
         sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'vsnip' }, -- For vsnip users.
-            -- { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
+            { name = "nvim_lsp", max_item_count = 5 },
+            { name = "luasnip", max_item_count = 5 },
+            { name = "nvim_lsp_signature_help" },
         }, {
-            { name = 'buffer' },
-        })
+            { name = "buffer", keyword_length = 3, max_item_count = 5 },
+            { name = "path", max_item_count = 5 },
+        }),
+        formatting = {
+            format = lspkind.cmp_format({
+                with_text = true,
+                menu = {
+                    buffer = "BUFF",
+                    nvim_lsp = "NLSP",
+                    path = "PATH",
+                    luasnip = "SNIP",
+                },
+            }),
+        },
+        experimental = {
+            native_menu = false,
+            ghost_text = false,
+        },
     })
 
     -- Set configuration for specific filetype.

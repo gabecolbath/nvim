@@ -11,12 +11,38 @@
 --                                                                             Y8b d88P 
 --                                                                              "Y88P" 
 
-local opts = {}
+local event = {
+    "BufReadPre",
+    "BufNewFile",
+}
+
+local init = function()
+end
+
 local config = function()
-    
+    local windows = require("lspconfig.ui.windows")
+    windows.default_options.border = "single"
+    vim.diagnostic.config({
+        signs = true,
+        underline = false,
+        virtual_text = false,
+        virtual_lines = false,
+        update_in_insert = false,
+        float = {
+            header = false,
+            border = "single",
+            focusable = true,
+        },
+    })
+    local signs = { Error = "!", Warn = "󰈻", Hint = "󰌵", Info = "i" }
+    for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
 end
 
 return {
-    opts = opts,
+    event = event,
+    init = init,
     config = config,
 }

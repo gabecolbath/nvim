@@ -63,6 +63,21 @@ local opts = {
     highlight_groups = {
         -- Comment = { fg = "foam" },
         -- VertSplit = { fg = "muted", bg = "muted" },
+        NormalFloat = { bg = "base" },
+        FloatBorder = { bg = "base" },
+        Float = { bg = "base" },
+        WhichKey = { bg = "base" },
+        WhichKeyFloat = { bg = "base" },
+        TelescopeNormal = { bg = "base" },
+        TelescopeBorder = { bg = "base" },
+        NoicePopupBorder = { fg = "muted", bg = "base" },
+        NoiceCmdlinePopupBorder = { fg = "muted", bg = "base" },
+        NoicePopupmenuBorder = { fg = "muted", bg = "base" },
+        NoiceConfirmBorder = { fg = "muted", bg = "base" },
+        NoiceSplitBorder = { fg = "muted", bg = "base" },
+        NoiceCmdlinePopupTitle = { fg = "muted", bg = "base" },
+        TelescopeTitle = { fg = "muted", bg = "base" },
+        FloatTitle = { fg = "muted", bg = "base" },
     },
 
     before_highlight = function(group, highlight, palette)

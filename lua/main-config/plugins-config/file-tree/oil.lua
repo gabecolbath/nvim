@@ -39,7 +39,7 @@ local opts = {
     -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
     delete_to_trash = false,
     -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-    skip_confirm_for_simple_edits = false,
+    skip_confirm_for_simple_edits = true,
     -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
     -- (:help prompt_save_on_select_new_entry)
     prompt_save_on_select_new_entry = true,
@@ -85,7 +85,7 @@ local opts = {
     },
     -- Configuration for the floating keymaps help window
     keymaps_help = {
-        border = "rounded",
+        border = "single",
     },
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = true,
@@ -113,10 +113,10 @@ local opts = {
     -- Configuration for the floating window in oil.open_float
     float = {
         -- Padding around the floating window
-        padding = 2,
-        max_width = 0,
-        max_height = 0,
-        border = "rounded",
+        padding = 0,
+        max_width = 100,
+        max_height = 30,
+        border = "single",
         win_options = {
             winblend = 0,
         },
@@ -131,7 +131,7 @@ local opts = {
         -- Width dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_width and max_width can be a single value or a list of mixed integer/float types.
         -- max_width = {100, 0.8} means "the lesser of 100 columns or 80% of total"
-        max_width = 0.9,
+        max_width = 0.8,
         -- min_width = {40, 0.4} means "the greater of 40 columns or 40% of total"
         min_width = { 40, 0.4 },
         -- optionally define an integer/float for the exact width of the preview window
@@ -139,12 +139,12 @@ local opts = {
         -- Height dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_height and max_height can be a single value or a list of mixed integer/float types.
         -- max_height = {80, 0.9} means "the lesser of 80 columns or 90% of total"
-        max_height = 0.9,
+        max_height = 0.8,
         -- min_height = {5, 0.1} means "the greater of 5 columns or 10% of total"
         min_height = { 5, 0.1 },
         -- optionally define an integer/float for the exact height of the preview window
         height = nil,
-        border = "rounded",
+        border = "single",
         win_options = {
             winblend = 0,
         },
@@ -153,13 +153,13 @@ local opts = {
     },
     -- Configuration for the floating progress window
     progress = {
-        max_width = 0.9,
+        max_width = 0.8,
         min_width = { 40, 0.4 },
         width = nil,
-        max_height = { 10, 0.9 },
+        max_height = { 10, 0.8 },
         min_height = { 5, 0.1 },
         height = nil,
-        border = "rounded",
+        border = "single",
         minimized_border = "none",
         win_options = {
             winblend = 0,
@@ -167,7 +167,7 @@ local opts = {
     },
     -- Configuration for the floating SSH window
     ssh = {
-        border = "rounded",
+        border = "single",
     },
 }
 

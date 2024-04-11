@@ -37,7 +37,7 @@ return {
     },
     dev = {
         ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
-        path = "~/projects",
+        path = "~/Repos/nvim/plugins",
         ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
         patterns = {}, -- For example {"folke"}
         fallback = false, -- Fallback to git when local plugin doesn't exist
@@ -46,15 +46,15 @@ return {
         -- install missing plugins on startup. This doesn't increase startup time.
         missing = true,
         -- try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "habamax" },
+        colorscheme = { "rose-pine" },
     },
     ui = {
         -- a number <1 is a percentage., >1 is a fixed size
         size = { width = 0.8, height = 0.8 },
         wrap = true, -- wrap the lines in the ui
         -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-        border = "none",
-        title = nil, ---@type string only works when border is not "none"
+        border = "single",
+        title = "Lazy", ---@type string only works when border is not "none"
         title_pos = "center", ---@type "center" | "left" | "right"
         -- Show pills on top of the Lazy window
         pills = true, ---@type boolean

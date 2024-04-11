@@ -32,7 +32,7 @@ local opts = {
         start_in_insert = true,
 
         -- These are passed to nvim_open_win
-        border = "rounded",
+        border = "single",
         -- 'editor' and 'win' will default to being centered
         relative = "cursor",
 
@@ -115,7 +115,7 @@ local opts = {
                 size = nil,
                 relative = "editor",
                 border = {
-                    style = "rounded",
+                    style = "single",
                 },
                 buf_options = {
                     swapfile = false,
@@ -135,7 +135,7 @@ local opts = {
                 -- Display numbers for options and set up keymaps
                 show_numbers = true,
                 -- These are passed to nvim_open_win
-                border = "rounded",
+                border = "single",
                 -- 'editor' and 'win' will default to being centered
                 relative = "editor",
 

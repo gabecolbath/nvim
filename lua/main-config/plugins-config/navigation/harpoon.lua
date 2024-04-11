@@ -9,11 +9,18 @@
 --  888    888 "Y888888 888     88888P"   "Y88P"   "Y88P"  888  888 
 --                              888                                 
 --                              888                                 
---                              888                                
+--                              888                             
 
 local opts = {
+    
+    menu = {
+        width = 80,
+        height = 20,
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+    },
+
     -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
-    save_on_toggle = false,
+    save_on_toggle = true,
 
     -- saves the harpoon file upon every change. disabling is unrecommended.
     save_on_change = true,
@@ -34,21 +41,6 @@ local opts = {
     tabline = false,
     tabline_prefix = "   ",
     tabline_suffix = "   ",
-
-    projects = {
-        -- Yes $HOME works
-        ["$HOME/personal/vim-with-me/server"] = {
-            term = {
-                cmds = {
-                    "./env && npx ts-node src/index.ts"
-                }
-            }
-        }
-    },
-
-    -- menu = {
-    --     width = vim.api.nvim_win_get_width(0) - 4,
-    -- }
 }
 
 return {

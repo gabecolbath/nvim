@@ -13,17 +13,12 @@
 
 local event = "VeryLazy"
 
--- local config = function()
---    vim.o.timeout = true,
---    vim.o.timeoutlen = 300,
--- end
-
 local init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
 end
 
-local opts = {
+local opts = {        
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -66,7 +61,7 @@ local opts = {
         scroll_up = "<c-u>", -- binding to scroll up inside the popup
     },
     window = {
-        border = "none", -- none, single, double, shadow
+        border = "single", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
         padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
@@ -77,7 +72,7 @@ local opts = {
         height = { min = 4, max = 25 }, -- min and max height of the columns
         width = { min = 20, max = 50 }, -- min and max width of the columns
         spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
+        align = "center", -- align columns left, center or right
     },
     ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "^:", "^ ", "^call ", "^lua " }, -- hide mapping boilerplate

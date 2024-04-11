@@ -11,7 +11,7 @@
 local opts = {
     ---@since 1.0.0
     -- The directory in which to install packages.
-    install_root_dir = vim.fn.stdpath("data") .. "mason",
+    install_root_dir = vim.fn.stdpath("data") .. "/mason",
 
     ---@since 1.0.0
     -- Where Mason should put its bin location in your PATH. Can be one of:
@@ -80,7 +80,7 @@ local opts = {
 
         ---@since 1.0.0
         -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-        border = "none",
+        border = "single",
 
         ---@since 1.0.0
         -- Width of the window. Accepts:

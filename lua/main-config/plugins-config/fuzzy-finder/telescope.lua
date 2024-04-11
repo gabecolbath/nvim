@@ -17,6 +17,11 @@ local dependencies = {
     "nvim-lua/plenary.nvim",
 }
 
+local config = function()
+    local telescope = require("telescope")
+    telescope.setup()
+end
+
 local opts = {
     defaults = {
         -- Default configuration for telescope goes here:
@@ -27,8 +32,9 @@ local opts = {
                 -- actions.which_key shows the mappings for your picker,
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
                 ["<C-h>"] = "which_key"
-            }
-        }
+            },
+        },
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     },
     pickers = {
         -- Default configuration for builtin pickers goes here:
@@ -40,11 +46,11 @@ local opts = {
             -- builtin picker
     },
     extensions = {
-        -- Your extension configuration goes here:
-        -- extension_name = {
-            --   extension_config_key = value,
-        -- }
-        -- please take a look at the readme of the extension you want to configure
+            -- Your extension configuration goes here:
+            -- extension_name = {
+                --   extension_config_key = value,
+                -- }
+                -- please take a look at the readme of the extension you want to configure
     },
 }
 

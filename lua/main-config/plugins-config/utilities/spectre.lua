@@ -11,11 +11,17 @@
 --             888                                               
 --             888                                               
 
+local dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+}
+
 local opts = {
 
 }
 
 local config = function()
+    
     -- for custom open functions
 end
 

@@ -11,18 +11,23 @@
 --                                                                                     Y8b d88P 
 --                                                                                      "Y88P"  
 
-require("main-config.opts")
+require("main-config.nvim-opts")
 require("main-config.lazy.bootstrap")
 
 local lazy = require("lazy")
 local plugins = require("main-config.lazy.plugins")
 local opts = require("main-config.lazy.opts")
 
--- Lazy --
+-- Lazy -----------------------------------------------------------------------
 lazy.setup(plugins, opts)
 
--- Colorscheme --
+-- Colorscheme ----------------------------------------------------------------
 require("main-config.colorscheme")
 
--- LSP -- 
+-- LSP ------------------------------------------------------------------------ 
 require("main-config.lsp")
+
+-- Key Maps -------------------------------------------------------------------
+require("main-config.keymaps")
+
+

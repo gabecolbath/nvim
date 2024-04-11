@@ -45,8 +45,7 @@ local lsp_kind = build_configuration("onsails/lspkind.nvim", "lspkind", config_d
 local mason = build_configuration("williamboman/mason.nvim", "mason", config_dir("lsp"))
 local mason_lspconfig = build_configuration("williamboman/mason-lspconfig.nvim", "mason-lspconfig", config_dir("lsp"))
 local lsp_config = build_configuration("neovim/nvim-lspconfig", "lspconfig", config_dir("lsp"))
-local neodev = build_configuration("folke/neodev.nvim", "neodev", config_dir("lsp"))
-local lsp = { lsp_kind, mason, mason_lspconfig, lsp_config, neodev }
+local lsp = { lsp_kind, mason, mason_lspconfig, lsp_config }
 
 -- Key Binding ----------------------------------------------------------------
 local which_key = build_configuration("folke/which-key.nvim", "which-key", config_dir("key-binding"))
@@ -58,13 +57,15 @@ local file_tree = { oil }
 
 -- Code Completion ------------------------------------------------------------
 local cmp = build_configuration("hrsh7th/nvim-cmp", "cmp", config_dir("code-completion"))
+local cmp_signature_help = build_configuration("hrsh7th/cmp-nvim-lsp-signature-help", "cmp-signature-help");
 local cmp_lsp = build_configuration("hrsh7th/cmp-nvim-lsp", "cmp-lsp")
 local cmp_buffer = build_configuration("hrsh7th/cmp-buffer", "cmp-buffer")
 local cmp_path = build_configuration("hrsh7th/cmp-path", "cmp-path")
 local cmp_cmdline = build_configuration("hrsh7th/cmp-cmdline", "cmp-cmdline")
+local luasnip = build_configuration("L3MON4D3/LuaSnip", "luasnip", config_dir("code-completion"))
 local autopairs = build_configuration("windwp/nvim-autopairs", "autopairs", config_dir("code-completion"))
 -- local autotag = build_configuration("windwp/nvim-ts-autotag", "autotag", config_dir("code-completion"))
-local code_completion = { cmp, cmp_lsp, cmp_buffer, cmp_cmdline, autopairs, --[[autotag--]] }
+local code_completion = { cmp, cmp_signature_help, cmp_lsp, cmp_buffer, cmp_path, cmp_cmdline, luasnip, autopairs, --[[autotag--]] }
 
 -- Syntax Highlighting --------------------------------------------------------
 local treesitter = build_configuration("nvim-treesitter/nvim-treesitter", "treesitter", config_dir("syntax-highlighting"))
@@ -93,11 +94,10 @@ local utilities = { code_action, comment, compiler_explorer, spectre, surround, 
 -- UI -------------------------------------------------------------------------
 local alpha = build_configuration("goolord/alpha-nvim", "alpha", config_dir("ui"))
 local dressing = build_configuration("stevearc/dressing.nvim", "dressing", config_dir("ui"))
-local fidget = build_configuration("j-hui/fidget.nvim", "fidget", config_dir("ui"))
 local lualine = build_configuration("nvim-lualine/lualine.nvim", "lualine", config_dir("ui"))
-local noice = build_configuration("folke/noice.nvim", "noice", config_dir("ui"))
 local zenmode = build_configuration("folke/zen-mode.nvim", "zenmode", config_dir("ui"))
-local ui = { alpha, dressing, fidget, lualine, noice, zenmode }
+local noice = build_configuration("folke/noice.nvim", "noice", config_dir("ui"))
+local ui = { alpha, dressing, lualine, zenmode, noice }
 
 -- Git ------------------------------------------------------------------------
 local gitsigns = build_configuration("lewis6991/gitsigns.nvim", "gitsigns", config_dir("git"))
@@ -107,6 +107,7 @@ local git = { gitsigns, vim_fugitive }
 return {
     colorschemes,
     lsp,
+    key_binding,
     file_tree,
     code_completion,
     syntax_highlighting,
