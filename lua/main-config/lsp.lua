@@ -72,3 +72,8 @@ lspconfig.clangd.setup({
     ),
     single_file_support = true,
 })
+
+lspconfig.cssls.setup({
+    capabilities = capabilities,
+    handlers = handlers,
+})
