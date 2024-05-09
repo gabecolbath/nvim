@@ -77,3 +77,17 @@ lspconfig.cssls.setup({
     capabilities = capabilities,
     handlers = handlers,
 })
+
+-- Zig -----------------------------------------------------------------------
+lspconfig.zls.setup({
+    capabilities = capabilities,
+    handlers = handlers,
+    cmd = { "zls" },
+    filetypes = { "zig", "zir" },
+    root_dir = lspconfig.util.root_pattern(
+        "zls.json", 
+        "build.zig",
+        ".git"
+    ),
+    single_file_support = true,
+})
