@@ -109,3 +109,19 @@ lspconfig.pyright.setup({
     },
     single_file_support = true,
 })
+
+-- Swift ----------------------------------------------------------------------
+lspconfig.sourcekit.setup({
+    capabilities = capabilities,
+    handlers = handlers,
+    cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" },
+    filetypes = { "swift" },
+    root_dir = lspconfig.util.root_pattern(
+        "buildServer.json",
+        "*.xcodeproj",
+        ".xcworkspace",
+        ".git",
+        "compile_commands.json",
+        "Package.swift"
+    )
+})
