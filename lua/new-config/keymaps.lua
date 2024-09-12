@@ -35,3 +35,5 @@ wk.add({
     { "<leader>e", "<cmd>Oil --float<cr>", desc = "File Explorer" },
 })
 
+-- CMP
+--      See cmp configuration
