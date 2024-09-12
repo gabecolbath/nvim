@@ -39,7 +39,7 @@ lsp.lua_ls.setup({
 lsp.clangd.setup({
     capabilities = capabilities,
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    rood_dir = lsp.util.root_pattern(
+    root_dir = lsp.util.root_pattern(
         ".clangd",
         ".clang-tidy",
         ".clang-format",
@@ -50,3 +50,13 @@ lsp.clangd.setup({
     ),
     single_file_support = true,
 })
+
+-- Zig
+lsp.zls.setup({
+    capabilities = capabilities,
+    cmd = { mason_path .. "zls" },
+    filetypes = { "zig", "zir" },
+    root_dir = lsp.util.root_pattern("zls.json", "build.zig", ".git"),
+    single_file_support = true,
+})
+
