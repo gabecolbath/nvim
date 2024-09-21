@@ -1,5 +1,7 @@
--- https://lazy.folke.io/configuration
--- Lazy Configuration
+--          ┌─────────────────────────────────────────────────────────┐
+--          │               Lazy Options Configuration                │
+--          └─────────────────────────────────────────────────────────┘
+
 return {
 	install = {
 		colorscheme = { "rose-pine" },

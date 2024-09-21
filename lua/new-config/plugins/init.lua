@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │             Initialize Plugin Configuration             │
+--          └─────────────────────────────────────────────────────────┘
+
 local path = "new-config.plugins"
 
 local plugin = function(name, git, enable)
@@ -19,6 +23,7 @@ end
 
 local colorschemes = {
 	plugin("colorschemes.rose-pine", "rose-pine/neovim", true),
+    plugin("colorschemes.catppuccin", "catppuccin/nvim", true),
 }
 
 local keymapping = {
@@ -38,6 +43,7 @@ local editing = {
     plugin("editing.surround", "kylechui/nvim-surround", true),
     plugin("editing.autopairs", "windwp/nvim-autopairs", true),
     plugin("editing.comment", "numToStr/Comment.nvim", true),
+    plugin("editing.comment-box", "LudoPinelli/comment-box.nvim", true),
 }
 
 local lsp = {
@@ -51,12 +57,15 @@ local code_completion = {
     plugin("code-completion.cmp-cmdline", "hrsh7th/cmp-cmdline", true),
     plugin("code-completion.cmp-path", "hrsh7th/cmp-path", true),
     plugin("code-completion.luasnip", "L3MON4D3/LuaSnip", true),
+    plugin("code-completion.cmp-lsp-signature", "hrsh7th/cmp-nvim-lsp-signature-help", true),
 }
 
 local ui = {
     plugin("ui.noice", "folke/noice.nvim", true),
     plugin("ui.notify", "rcarriga/nvim-notify", true),
     plugin("ui.alpha", "goolord/alpha-nvim", true),
+    plugin("ui.lualine", "nvim-lualine/lualine.nvim", true),
+    plugin("ui.gitsigns", "lewis6991/gitsigns.nvim", true),
 }
 
 return { colorschemes, keymapping, navigation, treesitter, editing, lsp, code_completion, ui }

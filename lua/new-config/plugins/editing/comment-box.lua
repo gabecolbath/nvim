@@ -1,15 +1,17 @@
 --          ┌─────────────────────────────────────────────────────────┐
---          │                   Mason Configuration                   │
+--          │                Comment Box Configuration                │
 --          └─────────────────────────────────────────────────────────┘
 
 local opts = {
-    ui = {
-        border = "single",
-        icons = {
-            package_installed = "",
-            package_pending = "",
-            package_uninstalled = "",
-        },
+    borders = {
+        top = "─",
+        bottom = "─",
+        left = "│",
+        right = "│",
+        top_left = "┌",
+        top_right = "┐",
+        bottom_left = "└",
+        bottom_right = "┘",
     },
 }
 

@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                    CMP Configuration                    │
+--          └─────────────────────────────────────────────────────────┘
+
 local config = function()
     local cmp = require("cmp")
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -50,6 +54,7 @@ local config = function()
         },
         sources = {
             { name = "nvim_lsp", max_item_count = 5 },
+            { name = "nvim_lsp_signature_help" },
             { name = "luasnip", max_item_count = 5 },
             { name = "path", max_item_count = 5 },
         },
@@ -70,7 +75,6 @@ local config = function()
             ghost_text = false,
         },
     })
-
     cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {

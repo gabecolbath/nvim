@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                 Rose-Pine Configuration                 │
+--          └─────────────────────────────────────────────────────────┘
+
 local name = "rose-pine"
 local opts = {
 	variant = "auto", -- options: auto, main, moon, or dawn
@@ -17,7 +21,7 @@ local opts = {
 		border = "muted",
 		link = "iris",
 		panel = "surface",
-		
+
 		error = "love",
 		hint = "iris",
 		info = "foam",

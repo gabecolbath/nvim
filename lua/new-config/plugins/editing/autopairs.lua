@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                 Autopairs Configuration                 │
+--          └─────────────────────────────────────────────────────────┘
+
 local event = "InsertEnter"
 local config = true
 local opts = {

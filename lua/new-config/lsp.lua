@@ -1,10 +1,29 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                LSP Server Configurations                │
+--          └─────────────────────────────────────────────────────────┘
 local lsp = require("lspconfig")
 local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
 local cmp_lsp = require("cmp_nvim_lsp")
 
 local capabilities = cmp_lsp.default_capabilities()
 
--- Lua Language Server
+-- ──────────────────────────── Global Setup ─────────────────────────
+vim.diagnostic.config({
+    virtual_text = false,
+    float = {
+        border = "single",
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "󰬅",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "󰋖",
+        },
+    },
+})
+
+-- ───────────────────────── Lua Language Server ─────────────────────────
 lsp.lua_ls.setup({
     on_init = function(client)
         local path = client.workspace_folders[1].name
@@ -35,7 +54,7 @@ lsp.lua_ls.setup({
     single_file_support = true,
 })
 
--- Clangd
+-- ─────────────────────────────── Clangd ────────────────────────────
 lsp.clangd.setup({
     capabilities = capabilities,
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
@@ -51,7 +70,7 @@ lsp.clangd.setup({
     single_file_support = true,
 })
 
--- Zig
+-- ───────────────────────────────── Zig ─────────────────────────────────
 lsp.zls.setup({
     capabilities = capabilities,
     cmd = { mason_path .. "zls" },
@@ -59,4 +78,3 @@ lsp.zls.setup({
     root_dir = lsp.util.root_pattern("zls.json", "build.zig", ".git"),
     single_file_support = true,
 })
-

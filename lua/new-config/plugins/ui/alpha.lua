@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                   Alpha Configuration                   │
+--          └─────────────────────────────────────────────────────────┘
+
 local dependencies = { "echasnovski/mini.icons", "nvim-lua/plenary.nvim" }
 local config = function ()
     local alpha = require("alpha")

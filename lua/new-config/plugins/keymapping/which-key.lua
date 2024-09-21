@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                 Which Key Configuration                 │
+--          └─────────────────────────────────────────────────────────┘
+
 local event = "VeryLazy"
 local dependencies = { "nvim-tree/nvim-web-devicons" }
 local opts = {
@@ -9,7 +13,7 @@ local opts = {
 }
 
 return {
-    event = event, 
+    event = event,
     dependencies = dependencies,
     opts = opts,
 }

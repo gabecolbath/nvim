@@ -1,3 +1,7 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--          │                   Noice Configuration                   │
+--          └─────────────────────────────────────────────────────────┘
+
 local event = "VeryLazy"
 local dependencies = { "MunifTanjim/nui.nvim" }
 local config = function()
@@ -5,37 +9,44 @@ local config = function()
     noice.setup({
         cmdline = {
             view = "cmdline",
-            border = { style = "single" },
         },
-        popup = {
-            border = { style = "single" },
+        lsp = {
+            signature = {
+                enabled = false,
+            },
         },
-        hover = {
-            border = { style = "single" },
-        },
-        mini = {
-            border = { style = "single" },
-        },
-        cmdline_popup = {
-            border = { style = "single" },
-        },
-        cmdline_input = {
-            border = { style = "single" },
-        },
-        confirm = {
-            border = { style = "single" },
-        },
-        routes = {
-            {
-                filter = {
-                    event = "msg_show",
-                    kind = "search_count",
+        views = {
+            popup = {
+                border = { style = "single" },
+            },
+            hover = {
+                border = { style = "single" },
+            },
+            mini = {
+                border = { style = "single" },
+            },
+            cmdline_popup = {
+                border = { style = "single" },
+            },
+            cmdline_input = {
+                border = { style = "single" },
+            },
+            confirm = {
+                border = { style = "single" },
+            },
+            routes = {
+                {
+                    filter = {
+                        event = "msg_show",
+                        kind = "search_count",
+                    },
+                    opts = { skip = true },
                 },
-                opts = { skip = true },
             },
         },
     })
 end
+
 return {
     event = event,
     dependencies = dependencies,
