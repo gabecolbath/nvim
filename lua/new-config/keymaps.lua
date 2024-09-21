@@ -88,3 +88,24 @@ vim.api.nvim_create_autocmd("LSPAttach", {
         }, { buffer = ev.buf })
     end,
 })
+
+-- ────────────────────────────── Git Signs ──────────────────────────────
+local gitsigns = require("gitsigns")
+gitsigns.setup({
+    on_attach = function()
+        wk.add({
+            { "<leader>g", group = "git" },
+            { "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", desc = "Show Signs" },
+        })
+        wk.add({
+            mode = { "n" },
+            { "<leader>h", group = "hunk" },
+            { "<leader>hr", function() gitsigns.reset_hunk() end, desc = "Reset" },
+            { "<leader>hs", function() gitsigns.stage_hunk() end, desc = "Stage" },
+            { "<leader>hR", function() gitsigns.reset_buffer() end, desc = "Reset Buffer" },
+            { "<leader>hS", function() gitsigns.stage_buffer() end, desc = "Stage Buffer" },
+            { "<leader>hu", function() gitsigns.undo_stage_hunk() end, desc = "Undo Stage" },
+            { "<leader>hp", function() gitsigns.preview_hunk() end, desc = "Preview Hunk" },
+        })
+    end,
+})
