@@ -5,6 +5,9 @@ local opts = {
     options = {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+            statusline = { "Oil", "Outline", "Telescope" },
+        }
     },
     sections = {
         lualine_a = {
@@ -28,6 +31,16 @@ local opts = {
             },
         },
         lualine_b = {
+        },
+        lualine_c = {},
+        lualine_x = {
+            {
+                "branch",
+                icon = "",
+            },
+            {
+                "diff",
+            },
             {
                 "filetype",
                 colored = true,
@@ -50,10 +63,17 @@ local opts = {
                 padding = 2,
             }
         },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
+        lualine_y = {
+            "mode",
+            "location",
+            "progress",
+        },
+        lualine_z = {
+            {
+                "datetime",
+                style = "%a %b %-d %-I:%M %p",
+            },
+        },
     },
 }
 

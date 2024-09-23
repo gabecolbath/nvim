@@ -3,6 +3,25 @@
 --          └─────────────────────────────────────────────────────────┘
 
 local wk = require("which-key")
+local extras = require("which-key.extras")
+
+-- ─────────────────────────────── Outline ───────────────────────────────
+wk.add({
+    { "<leader>o", "<cmd>Outline!<cr>", desc = "Toggle Outline" },
+})
+
+-- ─────────────────────────────── Buffer ────────────────────────────
+wk.add({
+    { "<leader>b", group = "buffer" },
+    { "<leader>bc", "<cmd>bd<cr>", desc = "Close" },
+    { "<leader>bfc", "<cmd>bd!<cr>", desc = "Force Close" },
+    { "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
+    { "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
+    { "<leader>bg", group = "go to", expand = function()
+        return extras.expand.buf()
+    end
+    },
+})
 
 -- ──────────────────────────────── Lazy ─────────────────────────────
 wk.add({
@@ -99,13 +118,13 @@ gitsigns.setup({
         })
         wk.add({
             mode = { "n" },
-            { "<leader>h", group = "hunk" },
-            { "<leader>hr", function() gitsigns.reset_hunk() end, desc = "Reset" },
-            { "<leader>hs", function() gitsigns.stage_hunk() end, desc = "Stage" },
-            { "<leader>hR", function() gitsigns.reset_buffer() end, desc = "Reset Buffer" },
-            { "<leader>hS", function() gitsigns.stage_buffer() end, desc = "Stage Buffer" },
-            { "<leader>hu", function() gitsigns.undo_stage_hunk() end, desc = "Undo Stage" },
-            { "<leader>hp", function() gitsigns.preview_hunk() end, desc = "Preview Hunk" },
+            {"<leader>gh", group = "hunk" },
+            { "<leader>ghr", function() gitsigns.reset_hunk() end, desc = "Reset" },
+            { "<leader>ghs", function() gitsigns.stage_hunk() end, desc = "Stage" },
+            { "<leader>ghR", function() gitsigns.reset_buffer() end, desc = "Reset Buffer" },
+            { "<leader>ghS", function() gitsigns.stage_buffer() end, desc = "Stage Buffer" },
+            { "<leader>ghu", function() gitsigns.undo_stage_hunk() end, desc = "Undo Stage" },
+            { "<leader>ghp", function() gitsigns.preview_hunk() end, desc = "Preview Hunk" },
         })
     end,
 })

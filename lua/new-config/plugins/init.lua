@@ -44,6 +44,7 @@ local editing = {
     plugin("editing.autopairs", "windwp/nvim-autopairs", true),
     plugin("editing.comment", "numToStr/Comment.nvim", true),
     plugin("editing.comment-box", "LudoPinelli/comment-box.nvim", true),
+    plugin("editing.outline", "hedyhli/outline.nvim", true),
 }
 
 local lsp = {
