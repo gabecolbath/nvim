@@ -5,6 +5,14 @@
 local wk = require("which-key")
 local extras = require("which-key.extras")
 
+-- ────────────────────────── Window Navigation ──────────────────────────
+wk.add({
+    { "<C-j>", "<C-w>j", desc = "Window Down" },
+    { "<C-k>", "<C-w>k", desc = "Window Up" },
+    { "<C-h>", "<C-w>h", desc = "Window Left" },
+    { "<C-l>", "<C-w>l", desc = "Window Right" },
+})
+
 -- ─────────────────────────────── Outline ───────────────────────────────
 wk.add({
     { "<leader>o", "<cmd>Outline!<cr>", desc = "Toggle Outline" },
