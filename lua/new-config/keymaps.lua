@@ -5,6 +5,15 @@
 local wk = require("which-key")
 local extras = require("which-key.extras")
 
+-- ────────────────────────────── Obsidian ───────────────────────────
+wk.add({
+    { "<leader>n", group = "notes" },
+    { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New" },         --TODO change to .md only
+    { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open" },       --TODO change to .md only
+    { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search" },   --TODO change to .md only
+    { "<leader>nr", "<cmd>ObsidianRename<cr>", desc = "Rename" },   --TODO change to .md only
+})
+
 -- ────────────────────────── Window Navigation ──────────────────────────
 wk.add({
     { "<C-j>", "<C-w>j", desc = "Window Down" },

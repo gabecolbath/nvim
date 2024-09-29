@@ -69,5 +69,10 @@ local ui = {
     plugin("ui.gitsigns", "lewis6991/gitsigns.nvim", true),
 }
 
-return { colorschemes, keymapping, navigation, treesitter, editing, lsp, code_completion, ui }
+local note_taking = {
+    plugin("note-taking.obsidian", "epwalsh/obsidian.nvim", true),
+    plugin("note-taking.renderer-markdown", "MeanderingProgrammer/render-markdown.nvim", true),
+}
+
+return { colorschemes, keymapping, navigation, treesitter, editing, lsp, code_completion, ui, note_taking }
 
