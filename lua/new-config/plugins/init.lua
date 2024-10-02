@@ -37,6 +37,7 @@ local navigation = {
 
 local treesitter = {
     plugin("treesitter.treesitter", "nvim-treesitter/nvim-treesitter", true),
+    plugin("treesitter.treesitter-textobjects", "nvim-treesitter/nvim-treesitter-textobjects", true),
 }
 
 local editing = {
@@ -45,6 +46,8 @@ local editing = {
     plugin("editing.comment", "numToStr/Comment.nvim", true),
     plugin("editing.comment-box", "LudoPinelli/comment-box.nvim", true),
     plugin("editing.outline", "hedyhli/outline.nvim", true),
+    plugin("editing.twilight", "folke/twilight.nvim", true),
+    plugin("editing.zen-mode", "folke/zen-mode.nvim", true),
 }
 
 local lsp = {
@@ -62,11 +65,12 @@ local code_completion = {
 }
 
 local ui = {
-    plugin("ui.noice", "folke/noice.nvim", true),
-    plugin("ui.notify", "rcarriga/nvim-notify", true),
+    plugin("ui.dressing", "stevearc/dressing.nvim", true),
+    plugin("ui.fidget", "j-hui/fidget.nvim", true),
     plugin("ui.alpha", "goolord/alpha-nvim", true),
     plugin("ui.lualine", "nvim-lualine/lualine.nvim", true),
     plugin("ui.gitsigns", "lewis6991/gitsigns.nvim", true),
+    plugin("ui.hover", "lewis6991/hover.nvim", true),
 }
 
 local note_taking = {

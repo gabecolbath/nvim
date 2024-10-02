@@ -1,17 +1,11 @@
 --          ┌─────────────────────────────────────────────────────────┐
---          │                Treesitter Configuration                 │
+--          │                Hovercraft Configuration                 │
 --          └─────────────────────────────────────────────────────────┘
 
-local opts = {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp" },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-}
+local dependencies = { "nvim-lua/plenary.nvim" }
+local opts = {}
 
 return {
+    dependencies = dependencies,
     opts = opts,
 }

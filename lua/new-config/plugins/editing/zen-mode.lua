@@ -1,14 +1,17 @@
 --          ┌─────────────────────────────────────────────────────────┐
---          │                Treesitter Configuration                 │
+--          │                 Zen Mode Configuration                  │
 --          └─────────────────────────────────────────────────────────┘
 
 local opts = {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp" },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
+    window = {
+        backdrop = 0.1,
+        width = 0.85,
+        height = 0.9,
+        options = {
+            signcolumn = "no",
+            number = false,
+            relativenumber = false,
+        },
     },
 }
 

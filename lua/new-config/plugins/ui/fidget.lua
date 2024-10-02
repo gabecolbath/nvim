@@ -1,14 +1,20 @@
 --          ┌─────────────────────────────────────────────────────────┐
---          │                Treesitter Configuration                 │
+--          │                  Fidget Configuration                   │
 --          └─────────────────────────────────────────────────────────┘
 
 local opts = {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp" },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
+    progress = {
+        display = {
+            done_icon = "",
+        },
+    },
+    notification = {
+        filter = vim.log.levels.DEBUG,
+        override_vim_notify = true,
+        window = {
+            border = "single",
+            winblend = 0,
+        },
     },
 }
 

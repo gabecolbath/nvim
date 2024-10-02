@@ -51,11 +51,9 @@ local opts = {
 		-- For overrides
 	},
 	highlight_groups = {
-		-- Custom highlight groups
+        -- Zenmode
+        ZenBg = { bg = "" },
 	},
-	before_highlight = function(group, highlight, palette)
-		
-	end,
 }
 
 return {

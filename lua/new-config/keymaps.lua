@@ -5,6 +5,32 @@
 local wk = require("which-key")
 local extras = require("which-key.extras")
 
+-- ─────────────────────── Treesitter Textobjects ────────────────────
+-- ┌
+-- │ See keymaps in configuration                            
+-- └                                                          
+wk.add({
+    { "<leader>s", group = "swap" },
+    { "<leader>sn", group = "next" },
+    { "<leader>sp", group = "previous" },
+})
+
+-- ──────────────────────────────── Hover ────────────────────────────────
+local hover = require("hover")
+wk.add({
+    { "K", hover.hover, desc = "Hover" },
+    { "gK", hover.hover_select, desc = "Select Hover" },
+    { "[h", function() hover.hover_switch("previous") end, desc = "Previous Hover" },
+    { "]h", function() hover.hover_switch("next") end, desc = "Previous Hover" },
+})
+
+-- ──────────────────────────────── View ─────────────────────────────
+wk.add({
+    { "<leader>z", group = "view" },
+    { "<leader>zz", "<cmd>ZenMode<cr>", desc = "Toggle" },
+    { "<leader>zt", "<cmd>Twilight<cr>", desc = "Twilight" },
+})
+
 -- ────────────────────────────── Obsidian ───────────────────────────
 wk.add({
     { "<leader>n", group = "notes" },
@@ -34,6 +60,8 @@ wk.add({
     { "<leader>bfc", "<cmd>bd!<cr>", desc = "Force Close" },
     { "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
     { "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
+    { "[b", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
+    { "]b", "<cmd>bnext<cr>", desc = "Next Buffer" },
     { "<leader>bg", group = "go to", expand = function()
         return extras.expand.buf()
     end
@@ -117,10 +145,9 @@ vim.api.nvim_create_autocmd("LSPAttach", {
             { "<leader>aa", function() vim.lsp.buf.code_action() end, desc = "Code Actions" },
             { "<leader>ar", function() vim.lsp.buf.rename() end, desc = "Rename" },
             { "<leader>af", function() vim.lsp.buf.format({ async = true }) end, desc = "Format" },
-            { "<leader>d", group = "diagnostics" },
-            { "<leader>dd", function() vim.diagnostic.open_float() end, desc = "Show Diagnostics" },
-            { "<leader>dn", function() vim.diagnostic.goto_next() end, desc = "Next"},
-            { "<leader>dp", function() vim.diagnostic.goto_prev() end, desc = "Previous" },
+            { "<leader>d", function() vim.diagnostic.open_float() end, desc = "Show Diagnostics" },
+            { "]d", function() vim.diagnostic.goto_next() end, desc = "Next Diagnostic"},
+            { "[d", function() vim.diagnostic.goto_prev() end, desc = "Previous Diagnostic" },
         }, { buffer = ev.buf })
     end,
 })
