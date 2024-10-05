@@ -48,6 +48,7 @@ local editing = {
     plugin("editing.outline", "hedyhli/outline.nvim", true),
     plugin("editing.twilight", "folke/twilight.nvim", true),
     plugin("editing.zen-mode", "folke/zen-mode.nvim", true),
+    plugin("editing.in-out", "ysmb-wtsg/in-and-out.nvim", true),
 }
 
 local lsp = {

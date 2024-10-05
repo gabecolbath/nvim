@@ -63,6 +63,14 @@ local config = function()
                     ["[v"] = { query = "@assignment.lhs", desc = "Next Assignment Name" },
 
                 }
+            },
+            lsp_interop = {
+                enable = true,
+                border = "single",
+                peek_definition_code = {
+                    ["<leader>id"] = { query = "@function.outer", desc = "Function" },
+                    ["<leader>iD"] = { query = "@class.outer", desc = "Class" },
+                }
             }
         },
     })

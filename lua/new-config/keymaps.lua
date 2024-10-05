@@ -5,6 +5,19 @@
 local wk = require("which-key")
 local extras = require("which-key.extras")
 
+-- ───────────────────────── Leaving Insert Mode ─────────────────────────
+wk.add({
+    mode = { "i" },
+    { "<C- >", "<esc>", desc = "Normal Mode" },
+})
+
+-- ───────────────────────────── In and Out ──────────────────────────
+local in_out = require("in-and-out")
+wk.add({
+    mode = { "i" },
+    { "<C-cr>", in_out.in_and_out, desc = "In and Out" },
+})
+
 -- ─────────────────────── Treesitter Textobjects ────────────────────
 -- ┌
 -- │ See keymaps in configuration                            
@@ -13,6 +26,7 @@ wk.add({
     { "<leader>s", group = "swap" },
     { "<leader>sn", group = "next" },
     { "<leader>sp", group = "previous" },
+    { "<leader>i", group = "definition info" },
 })
 
 -- ──────────────────────────────── Hover ────────────────────────────────
@@ -29,6 +43,7 @@ wk.add({
     { "<leader>z", group = "view" },
     { "<leader>zz", "<cmd>ZenMode<cr>", desc = "Toggle" },
     { "<leader>zt", "<cmd>Twilight<cr>", desc = "Twilight" },
+    { "<leader>zg", "<cmd>Gitsigns toggle_signs<cr>", desc = "Git Signs" },
 })
 
 -- ────────────────────────────── Obsidian ───────────────────────────
@@ -140,7 +155,6 @@ vim.api.nvim_create_autocmd("LSPAttach", {
             { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
             { "gT", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Type Definitions" },
             { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Type Definitions" },
-            { "<leader>i", function() vim.lsp.buf.hover() end, desc = "Hover" },
             { "<leader>a", group = "code actions" },
             { "<leader>aa", function() vim.lsp.buf.code_action() end, desc = "Code Actions" },
             { "<leader>ar", function() vim.lsp.buf.rename() end, desc = "Rename" },
@@ -158,7 +172,6 @@ gitsigns.setup({
     on_attach = function()
         wk.add({
             { "<leader>g", group = "git" },
-            { "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", desc = "Show Signs" },
         })
         wk.add({
             mode = { "n" },
