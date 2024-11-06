@@ -2,6 +2,7 @@
 --          │                 Obsidian Configuration                  │
 --          └─────────────────────────────────────────────────────────┘
 
+local enabled = false
 local version = "*"
 local lazy = false
 local dependencies = { "nvim-lua/plenary.nvim" }
@@ -324,6 +325,7 @@ local opts = {
 }
 
 return {
+    enabled = enabled,
     version = version,
     lazy = lazy,
     dependencies = dependencies,

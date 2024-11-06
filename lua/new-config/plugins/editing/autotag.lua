@@ -1,13 +1,18 @@
 --          ┌─────────────────────────────────────────────────────────┐
---          │                 Autopairs Configuration                 │
+--          │                  Autotag Configuration                  │
 --          └─────────────────────────────────────────────────────────┘
 
-local event = "InsertEnter"
-local config = true
-local opts = {}
+local config = function()
+    local autotag = require("nvim-ts-autotag")
+    autotag.setup({
+        opts = {
+            enable_close = true,
+            enable_rename = true,
+            enable_close_on_slash = false,
+        },
+    })
+end
 
 return {
-    event = event,
     config = config,
-    opts = opts,
 }

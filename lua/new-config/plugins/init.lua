@@ -43,6 +43,7 @@ local treesitter = {
 local editing = {
     plugin("editing.surround", "kylechui/nvim-surround", true),
     plugin("editing.autopairs", "windwp/nvim-autopairs", true),
+    plugin("editing.autotag", "windwp/nvim-ts-autotag", true),
     plugin("editing.comment", "numToStr/Comment.nvim", true),
     plugin("editing.comment-box", "LudoPinelli/comment-box.nvim", true),
     plugin("editing.outline", "hedyhli/outline.nvim", true),

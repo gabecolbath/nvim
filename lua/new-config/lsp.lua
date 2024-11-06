@@ -78,3 +78,11 @@ lsp.zls.setup({
     root_dir = lsp.util.root_pattern("zls.json", "build.zig", ".git"),
     single_file_support = true,
 })
+
+-- ──────────────────────────────── Swift ────────────────────────────────
+lsp.sourcekit.setup({
+    capabilities = capabilities,
+    cmd = { "/bin/sourcekit-lsp" },
+    filetypes = { "swift", "objc", "objcpp" },
+    root_dir = lsp.util.root_pattern("buildServer.json", "*.xcodeproj", "*.xcworkspace", "compile_commands.json", "Package.swift", ".git"),
+})

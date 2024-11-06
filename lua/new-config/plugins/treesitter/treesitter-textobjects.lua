@@ -11,65 +11,114 @@ local config = function()
                 enable = true,
                 lookahead = true,
                 keymaps = {
-                    -- You can use the capture groups defined in textobjects.scm
-                    ["af"] = { query = "@function.outer", desc = "function" },
-                    ["if"] = { query = "@function.inner", desc = "function" },
-                    ["ac"] = { query = "@class.outer", desc = "class" },
-                    ["ic"] = { query = "@class.inner", desc = "class" },
-                    ["as"] = { query = "@scope.outer", query_group = "locals", desc = "scope" },
-                    ["is"] = { query = "@scope.inner", query_group = "locals", desc = "scope" },
-                    ["aa"] = { query = "@parameter.outer", desc = "parameter" },
-                    ["vn"] = { query = "@assignment.lhs", desc = "parameter" },
-                    ["v="] = { query = "@assignment.rhs", desc = "parameter" },
-                    ["a?"] = { query = "@conditional.outer", desc = "conditional" },
-                    ["i?"] = { query = "@conditional.inner", desc = "conditional" },
-                    ["al"] = { query = "@loop.outer", desc = "loop" },
-                    ["il"] = { query = "@loop.inner", desc = "loop" },
+                    -- Assignments
+                    ["a="] = { query = "@assignment.outer", desc = "Assignment" },
+                    ["i="] = { query = "@assignment.inner", desc = "Assignment" },
+                    ["l="] = { query = "@assignment.lhs", desc = "Assignment" },
+                    ["r="] = { query = "@assignment.rhs", desc = "Assignment" },
+                    -- Arguments
+                    ["aa"] = { query = "@parameter.outer", desc = "Parameter" },
+                    ["ia"] = { query = "@parameter.inner", desc = "Paramter" },
+                    -- Conditionals
+                    ["ai"] = { query = "@conditional.outer", desc = "Conditional" },
+                    ["ii"] = { query = "@conditional.inner", desc = "Conditional" },
+                    -- Loops
+                    ["al"] = { query = "@loop.outer", desc = "Loop" },
+                    ["il"] = { query = "@loop.inner", desc = "Loop" },
+                    -- Function Call
+                    ["afc"] = { query = "@call.outer", desc = "Function Call" },
+                    ["ifc"] = { query = "@call.inner", desc = "Function Call" },
+                    -- Function Definition
+                    ["aff"] = { query = "@function.outer", desc = "Function Definition" },
+                    ["iff"] = { query = "@function.inner", desc = "Function Definition" },
+                    -- Class
+                    ["ac"] = { query = "@class.outer", desc = "Class" },
+                    ["ic"] = { query = "@class.inner", desc = "Class" },
                 },
-                -- You can choose the select mode (default is charwise 'v')
-                --
-                -- Can also be a function which gets passed a table with the keys
-                -- * query_string: eg '@function.inner'
-                -- * method: eg 'v' or 'o'
-                -- and should return the mode ('v', 'V', or '<c-v>') or a table
-                -- mapping query_strings to modes.
             },
             swap = {
                 enable = true,
                 swap_next = {
+                    -- Parameter
                     ["<leader>sna"] = { query = "@parameter.inner", desc = "Parameter" },
+                    -- Function
+                    ["<leader>snf"] = { query = "@function.outer", desc = "Function" },
+                    -- Assignment
+                    ["<leader>sn="] = { query = "@assignment.outer", desc = "Assignment" },
                 },
                 swap_previous = {
+                    -- Parameters 
                     ["<leader>spa"] = { query = "@parameter.inner", desc = "Parameter" },
+                    -- Function Definitions
+                    ["<leader>spf"] = { query = "@function.outer", desc = "Function" },
+                    -- Assignments
+                    ["<leader>sp="] = { query = "@assignment.outer", desc = "Assignment" },
                 },
             },
             move = {
                 enable = true,
                 set_jumps = true,
                 goto_next_start = {
-                    ["]c"] = { query = "@class.outer", desc = "Next Class" },
-                    ["]f"] = { query = "@function.outer", desc = "Next Function" },
-                    ["]a"] = { query = "@parameter.outer", desc = "Next Parameter" },
-                    ["]s"] = { query = "@scope", desc = "Next Scope" },
-                    ["]="] = { query = "@assignment.rhs", desc = "Next Assignment" },
-                    ["]v"] = { query = "@assignment.lhs", desc = "Next Assignment Name" },
+                    -- Function Calls
+                    ["]fc"] = { query = "@call.outer", desc = "Function Call" },
+                    -- Function Definitions
+                    ["]ff"] = { query = "function.outer", desc = "Function Definition" },
+                    -- Classes
+                    ["]c"] = { query = "class.outer", desc = "Class" },
+                    -- Conditionals
+                    ["]i"] = { query = "conditional.outer", desc = "Conditional" },
+                    -- Loops
+                    ["]l"] = { query = "loop.outer", desc = "Loop" },
+                    -- Scope
+                    ["]s"] = { query = "@scope", query_group = "locals", desc = "Scope" },
                 },
                 goto_previous_start = {
-                    ["[c"] = { query = "@class.outer", desc = "Next Class" },
-                    ["[f"] = { query = "@function.outer", desc = "Next Function" },
-                    ["[a"] = { query = "@parameter.outer", desc = "Next Parameter" },
-                    ["[s"] = { query = "@scope", desc = "Next Scope" },
-                    ["[="] = { query = "@assignment.rhs", desc = "Next Assignment" },
-                    ["[v"] = { query = "@assignment.lhs", desc = "Next Assignment Name" },
-
-                }
+                    -- Function Calls
+                    ["[fc"] = { query = "@call.outer", desc = "Function Call" },
+                    -- Function Definitions
+                    ["[ff"] = { query = "function.outer", desc = "Function Definition" },
+                    -- Classes
+                    ["[c"] = { query = "class.outer", desc = "Class" },
+                    -- Conditionals
+                    ["[i"] = { query = "conditional.outer", desc = "Conditional" },
+                    -- Loops
+                    ["[l"] = { query = "loop.outer", desc = "Loop" },
+                },
+                goto_next_end = {
+                    -- Function Calls
+                    ["]FC"] = { query = "@call.outer", desc = "Function Call" },
+                    -- Function Definitions
+                    ["]FF"] = { query = "function.outer", desc = "Function Definition" },
+                    -- Classes
+                    ["]C"] = { query = "class.outer", desc = "Class" },
+                    -- Conditionals
+                    ["]I"] = { query = "conditional.outer", desc = "Conditional" },
+                    -- Loops
+                    ["]L"] = { query = "loop.outer", desc = "Loop" },
+                    -- Scope
+                    ["]S"] = { query = "@scope", query_group = "locals", desc = "Scope" },
+                },
+                goto_previous_end = {
+                    -- Function Calls
+                    ["[FC"] = { query = "@call.outer", desc = "Function Call" },
+                    -- Function Definitions
+                    ["[FF"] = { query = "function.outer", desc = "Function Definition" },
+                    -- Classes
+                    ["[C"] = { query = "class.outer", desc = "Class" },
+                    -- Conditionals
+                    ["[I"] = { query = "conditional.outer", desc = "Conditional" },
+                    -- Loops
+                    ["[L"] = { query = "loop.outer", desc = "Loop" },
+                    -- Scope
+                    ["[S"] = { query = "@scope", query_group = "locals", desc = "Scope" },
+                },
             },
             lsp_interop = {
                 enable = true,
                 border = "single",
                 peek_definition_code = {
-                    ["<leader>id"] = { query = "@function.outer", desc = "Function" },
-                    ["<leader>iD"] = { query = "@class.outer", desc = "Class" },
+                    ["<leader>if"] = { query = "@function.outer", desc = "Function Definition" },
+                    ["<leader>ic"] = { query = "@class.outer", desc = "Class" },
                 }
             }
         },

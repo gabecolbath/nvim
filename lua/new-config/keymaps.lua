@@ -23,10 +23,12 @@ wk.add({
 -- │ See keymaps in configuration                            
 -- └                                                          
 wk.add({
+    -- Swap
     { "<leader>s", group = "swap" },
     { "<leader>sn", group = "next" },
     { "<leader>sp", group = "previous" },
-    { "<leader>i", group = "definition info" },
+    -- Peek Definition
+    { "<leader>i", group = "peek definition" },
 })
 
 -- ──────────────────────────────── Hover ────────────────────────────────
