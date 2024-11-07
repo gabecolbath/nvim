@@ -79,22 +79,3 @@ lsp.zls.setup({
     single_file_support = true,
 })
 
--- ──────────────────────────────── Swift ────────────────────────────────
-<<<<<<< HEAD
-lsp.sourcekit.setup({
-    capabilities = capabilities,
-    cmd = { "/bin/sourcekit-lsp" },
-=======
-local swift_capabilities = default_capabilities
-swift_capabilities.workspace = {
-    didChangeWatchedFiles = {
-        dynamicRegistration = true,
-    },
-}
-lsp.sourcekit.setup({
-    capabilities = swift_capabilities,
-    cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" },
->>>>>>> b558434 (Not sure)
-    filetypes = { "swift", "objc", "objcpp" },
-    root_dir = lsp.util.root_pattern("buildServer.json", "*.xcodeproj", "*.xcworkspace", "compile_commands.json", "Package.swift", ".git"),
-})
