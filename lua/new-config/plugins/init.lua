@@ -50,6 +50,7 @@ local editing = {
     plugin("editing.twilight", "folke/twilight.nvim", true),
     plugin("editing.zen-mode", "folke/zen-mode.nvim", true),
     plugin("editing.in-out", "ysmb-wtsg/in-and-out.nvim", true),
+    plugin("editing.codesnap", "mistricky/codesnap.nvim", true),
 }
 
 local lsp = {
@@ -80,5 +81,9 @@ local note_taking = {
     plugin("note-taking.renderer-markdown", "MeanderingProgrammer/render-markdown.nvim", true),
 }
 
-return { colorschemes, keymapping, navigation, treesitter, editing, lsp, code_completion, ui, note_taking }
+local ios_dev = {
+    plugin("ios-dev.xcodebuild", "wojciech-kulik/xcodebuild.nvim", true),
+}
+
+return { colorschemes, keymapping, navigation, treesitter, editing, lsp, code_completion, ui, note_taking, ios_dev }
 

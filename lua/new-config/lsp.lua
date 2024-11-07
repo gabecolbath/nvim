@@ -5,7 +5,7 @@ local lsp = require("lspconfig")
 local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
 local cmp_lsp = require("cmp_nvim_lsp")
 
-local capabilities = cmp_lsp.default_capabilities()
+local default_capabilities = cmp_lsp.default_capabilities()
 
 -- ──────────────────────────── Global Setup ─────────────────────────
 vim.diagnostic.config({
@@ -45,7 +45,7 @@ lsp.lua_ls.setup({
     settings = {
         Lua = {},
     },
-    capabilities = capabilities,
+    capabilities = default_capabilities,
     cmd = { mason_path .. "lua-language-server" },
     filetypes = { "lua" },
     log_level = 2,
@@ -56,7 +56,7 @@ lsp.lua_ls.setup({
 
 -- ─────────────────────────────── Clangd ────────────────────────────
 lsp.clangd.setup({
-    capabilities = capabilities,
+    capabilities = default_capabilities,
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
     root_dir = lsp.util.root_pattern(
         ".clangd",
@@ -72,7 +72,7 @@ lsp.clangd.setup({
 
 -- ───────────────────────────────── Zig ─────────────────────────────────
 lsp.zls.setup({
-    capabilities = capabilities,
+    capabilities = default_capabilities,
     cmd = { mason_path .. "zls" },
     filetypes = { "zig", "zir" },
     root_dir = lsp.util.root_pattern("zls.json", "build.zig", ".git"),
@@ -80,9 +80,21 @@ lsp.zls.setup({
 })
 
 -- ──────────────────────────────── Swift ────────────────────────────────
+<<<<<<< HEAD
 lsp.sourcekit.setup({
     capabilities = capabilities,
     cmd = { "/bin/sourcekit-lsp" },
+=======
+local swift_capabilities = default_capabilities
+swift_capabilities.workspace = {
+    didChangeWatchedFiles = {
+        dynamicRegistration = true,
+    },
+}
+lsp.sourcekit.setup({
+    capabilities = swift_capabilities,
+    cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" },
+>>>>>>> b558434 (Not sure)
     filetypes = { "swift", "objc", "objcpp" },
     root_dir = lsp.util.root_pattern("buildServer.json", "*.xcodeproj", "*.xcworkspace", "compile_commands.json", "Package.swift", ".git"),
 })

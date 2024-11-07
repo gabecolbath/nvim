@@ -5,6 +5,44 @@
 local wk = require("which-key")
 local extras = require("which-key.extras")
 
+-- ────────────────────────────── Codesnap ───────────────────────────
+wk.add({
+    mode = { "v" },
+    { "<leader>s", group = "screenshot" },
+    { "<leader>sy", "<cmd>CodeSnap<cr>", desc = "Copy Screenshot" },
+    { "<leader>ss", "<cmd>CodeSnapSave<cr>", desc = "Save Screenshot" },
+})
+
+
+-- ───────────────────────────── Xcode Build ─────────────────────────────
+wk.add({
+    { "<leader>x", group = "xcode" },
+    { "<leader>xx", "<cmd>XcodebuildPicker<cr>", desc = "Show Build Actions" },
+    { "<leader>xf", "<cmd>XcodebuildProjectManager<cr>", desc = "Show Project Manager" },
+
+    { "<leader>xb", "<cmd>XcodebuildBuild<cr>", desc = "Build Project" },
+    { "<leader>xB", "<cmd>XcodebuildBuildForTesting<cr>", desc = "Build For Testing" },
+    { "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", desc = "Build and Run" },
+
+    { "<leader>xt", "<cmd>XcodebuildTest<cr>", desc = "Run Tests" },
+    { "<leader>xT", "<cmd>XcodebuildTestClass<cr>", desc = "Run Current Test Class" },
+    { "<leader>x.", "<cmd>XcodebuildTestRepeat<cr>", desc = "Repeat Last Test Run" },
+
+    { "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", desc = "Toggle Xcodebuild Logs" },
+    { "<leader>xc", "<cmd>XcodebuildToggleCodeCoverage<cr>", desc = "Toggle Code Coverage" },
+    { "<leader>xC", "<cmd>XcodebuildShowCodeCoverageReport<cr>", desc = "Show Code Coverage Report" },
+    { "<leader>xe", "<cmd>XcodebuildTestExplorerTool<cr>", desc = "Toggle Test Explorer" },
+    { "<leader>xs", "<cmd>XcodebuildFailingSnapshots<cr>", desc = "Show Failing Snapshot" },
+
+    { "<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", desc = "Select Device" },
+    { "<leader>xp", "<cmd>XcodebuildSelectTestPlan<cr>", desc = "Select Test Plan" },
+    { "<leader>xa", "<cmd>XcodebuildCodeActions<cr>", desc = "Show Code Actions" },
+
+    { "<leader>xq", group = "quickfix" },
+    { "<leader>xqq", "<cmd>Telescope quickfix<cr>", desc = "Show Quickfix List" },
+    { "<leader>xql", "<cmd>XcodebuildQuickfixLine<cr>", desc = "Quickfix Line" },
+})
+
 -- ───────────────────────── Leaving Insert Mode ─────────────────────────
 wk.add({
     mode = { "i" },
