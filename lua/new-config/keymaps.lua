@@ -172,9 +172,9 @@ wk.add({
     { "<leader>cy", "<cmd>CBy<cr>", desc = "yank" },
 
     { "<leader>cb", group = "box" },
-    { "<leader>cbb", "<cmd>CBccbox2<cr>", desc = "Center" },
-    { "<leader>cbl", "<cmd>CBclbox2<cr>", desc = "Left" },
-    { "<leader>cbr", "<cmd>CBcrbox2<cr>", desc = "Right" },
+    { "<leader>cbb", "<cmd>CBlcbox2<cr>", desc = "Center" },
+    { "<leader>cbl", "<cmd>CBllbox2<cr>", desc = "Left" },
+    { "<leader>cbr", "<cmd>CBlrbox2<cr>", desc = "Right" },
     { "<leader>cbq", "<cmd>CBllbox12<cr>", desc = "Quote" },
 
     { "<leader>cl", group = "line" },
