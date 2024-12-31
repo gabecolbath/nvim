@@ -36,7 +36,6 @@ local config = function()
                     ["ic"] = { query = "@class.inner", desc = "Class" },
                 },
             },
-<<<<<<< HEAD
             swap = {
                 enable = true,
                 swap_next = {
@@ -56,8 +55,6 @@ local config = function()
                     ["<leader>sp="] = { query = "@assignment.outer", desc = "Assignment" },
                 },
             },
-=======
->>>>>>> b558434 (Not sure)
             move = {
                 enable = true,
                 set_jumps = true,
