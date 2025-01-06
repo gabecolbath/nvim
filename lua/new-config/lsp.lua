@@ -79,3 +79,27 @@ lsp.zls.setup({
     single_file_support = true,
 })
 
+-- ──────────────────────────────── HTML ─────────────────────────────
+local html_capabilities = default_capabilities
+html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+lsp.html.setup({
+    capabilities = default_capabilities,
+    cmd = { mason_path .. "vscode-html-language-server", "--stdio" },
+    filetypes = { "html", "templ" },
+    init_options = {
+        configurationSection = { "html", "css", "javascript" },
+        embeddedLanguages = {
+            css = true,
+            javascript = true,
+        },
+        provideFormatter = true,
+    },
+})
+
+-- ──────────────────────────────── htmx ─────────────────────────────
+lsp.htmx.setup({
+    capabilities = default_capabilities,
+    cmd = { mason_path .. "htmx-lsp" },
+    filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "htmlangular", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" },
+    single_file_support = true, 
+})
