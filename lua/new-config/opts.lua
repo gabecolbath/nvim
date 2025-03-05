@@ -15,5 +15,5 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 5
 vim.opt.fillchars = { eob = " " }
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.relativenumber = true
