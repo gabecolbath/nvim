@@ -73,7 +73,7 @@ lsp.clangd.setup({
 -- ───────────────────────────────── Zig ─────────────────────────────────
 lsp.zls.setup({
     capabilities = default_capabilities,
-    cmd = { mason_path .. "zls" },
+    cmd = { "/opt/zls-0.14.0/zig-out/bin/zls" },
     filetypes = { "zig", "zir" },
     root_dir = lsp.util.root_pattern("zls.json", "build.zig", ".git"),
     single_file_support = true,
