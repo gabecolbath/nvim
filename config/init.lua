@@ -1,0 +1,6 @@
+require("gabe.config.lazy")
+require("gabe.config.options")
+require("gabe.config.colorscheme")
+require("gabe.config.keymaps")
+require("gabe.config.lsp")
+require("gabe.config.dap")
