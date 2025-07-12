@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.diagnostic.config({
-    underline = false,
+    underline = true,
     signs = {
         active = true,
         text = {

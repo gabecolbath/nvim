@@ -1,40 +1,20 @@
 return {
-	"nvim-treesitter/nvim-treesitter", 
-	dependencies = { "windwp/nvim-ts-autotag" },
-	branch = "master", 
-	lazy = false,
-	config = function()
-		local treesitter = require("nvim-treesitter.configs")
+    "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    build = ":TSUpdate",
+    config = function()
+        require("nvim-treesitter.configs").setup({
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "markdown_inline" },
+            sync_install = false,
+            auto_install = true,
+            ignore_install = { "javascript" },
 
-		treesitter.setup({
-			highlight = { 
-				enable = true, 
-				additional_vim_regex_highlighting = false,
-			},
-			indent = { enable = true },
-			autotag = { enable = true },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
+            },
 
-			ensure_installed = {
-				"json",
-				"html",
-				"css",
-				"c",
-				"cpp",
-				"zig",
-				"lua",
-			},
-			
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>", 
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
-		})
-
-		
-	end,
+            indent = { enable = true },
+        })
+    end,
 }
