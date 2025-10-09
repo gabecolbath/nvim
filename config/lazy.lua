@@ -14,12 +14,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("gabe-new.config.opt")
+require("gabe.config.opt")
 vim.g.mapleader = ' '
 
 require("lazy").setup({
     spec = {
-        { import = "gabe-new.plugins" },
+        { import = "gabe.plugins" },
     },
     install = { colorscheme = { "rose-pine" } },
     checker = { enabled = true },

@@ -1,4 +1,4 @@
-require("gabe-new.config.lazy")
-require("gabe-new.config.colorscheme")
-require("gabe-new.config.lsp")
-require("gabe-new.config.keymaps")
+require("gabe.config.lazy")
+require("gabe.config.colorscheme")
+require("gabe.config.lsp")
+require("gabe.config.keymaps")
