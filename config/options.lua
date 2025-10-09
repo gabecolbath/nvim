@@ -1,27 +1,25 @@
-local set = vim.opt
-
-set.expandtab = true
-set.shiftwidth = 4
-set.tabstop = 4
-set.softtabstop = 4
-set.relativenumber = true
-set.number = true
-set.autoindent = true
-set.fillchars = "eob: "
-set.numberwidth = 4
-set.ignorecase = true
-set.smartcase = true
-set.wrap = false
-set.termguicolors = true
-set.background = "dark"
-set.signcolumn = "yes"
-set.backspace = "indent,eol,start"
-set.clipboard:append("unnamedplus")
-set.splitright = true
-set.splitbelow = true
-set.cursorline = true
-set.hlsearch = false
-set.scrolloff = 10
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.autoindent = true
+vim.opt.fillchars = "eob: "
+vim.opt.numberwidth = 4
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.wrap = false
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.signcolumn = "yes"
+vim.opt.backspace = "indent,eol,start"
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.cursorline = true
+vim.opt.hlsearch = false
+vim.opt.scrolloff = 10
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking text.",
