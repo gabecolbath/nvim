@@ -5,6 +5,8 @@ rose_pine.setup({
         transparency = true,
     },
     highlight_groups = {
+        Winbar = { link = "Normal" },
+        WinbarNC = { link = "NormalNC" },
         MiniTablineCurrent = { fg = "base", bg = "pine" },
         MiniTablineModifiedCurrent = { fg = "base", bg = "foam" },
         MiniTablineVisible = { link = "@comment.note" },
