@@ -11,7 +11,6 @@ rose_pine.setup({
         MiniTablineModifiedVisible = { link = "@comment.info" },
         MiniTablineHidden = { link = "@comment.note" },
         MiniTablineModifiedHidden = { link = "@comment.info" },
-        MiniTablineFill = { link = "@comment.note" },
     }
 })
 

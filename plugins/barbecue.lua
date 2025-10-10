@@ -5,10 +5,6 @@ return {
     dependencies = {
         "SmiteshP/nvim-navic",
     },
-    opts = {
-        theme = {
-            normal = { link = "@comment.note" },
-        },
-    },
+    opts = {},
 }
 
