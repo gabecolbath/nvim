@@ -4,8 +4,7 @@ return {
         version= "*",
         config = function()
 
-            require("mini.pairs").setup({})
-            require("mini.ai").setup({})
+            require("mini.pairs").setup({}) require("mini.ai").setup({})
             require("mini.files").setup({})
             require("mini.pick").setup({})
             require("mini.notify").setup({})
@@ -53,6 +52,9 @@ return {
             require("mini.splitjoin").setup({})
             require("mini.surround").setup({})
             require("mini.trailspace").setup({})
+            require("mini.statusline").setup({})
+            require("mini.git").setup({})
+            require("mini.diff").setup({})
         end,
     },
 }

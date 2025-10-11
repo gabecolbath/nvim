@@ -33,5 +33,22 @@ vim.lsp.config("zls", {
     workspace_required = false,
 })
 
+vim.lsp.config("basedpyright", {
+    capabilities = capabilities,
+    cmd = { "basedpyright-langserver", "--stdio" },
+    filetypes = { "python" },
+    root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyrightconfig.json", ".git" },
+    settings = {
+        basedpyright = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+            }
+        },
+    },
+})
+
 vim.lsp.enable("lua_ls", true)
 vim.lsp.enable("zls", true)
+vim.lsp.enable("basedpyright", true)

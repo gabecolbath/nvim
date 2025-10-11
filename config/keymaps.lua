@@ -23,6 +23,10 @@ local keymaps = {
         { "<leader>tt", ":lua MiniTrailspace.trim()<cr>", desc = "Trailing Whitespace" },
         { "<leader>tT", ":lua MiniTrailspace.trim_last_lines()<cr>", desc = "Trailing Empty Lines" }
     },
+    {
+        { "<leader>b", group = "buffer" },
+        { "<leader>bq", ":bwipeout<cr>", desc = "Close Buffer" },
+    },
 }
 
 local hover = function()

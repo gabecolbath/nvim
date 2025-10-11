@@ -13,7 +13,19 @@ rose_pine.setup({
         MiniTablineModifiedVisible = { link = "@comment.info" },
         MiniTablineHidden = { link = "@comment.note" },
         MiniTablineModifiedHidden = { link = "@comment.info" },
+        MiniStatuslineFileInfo = { bg = "none", ctermbg = "none" },
+        MiniStatuslineFilename = { bg = "none", ctermbg = "none", italic = true },
+        MiniStatuslineDevinfo = { bg = "none", ctermbg = "none" },
+        MiniStatuslineModeNormal = { link = "@comment.note" },
+        MiniStatuslineModeInsert = { link = "@comment.info" },
+        MiniStatuslineModeCommand = { link = "@comment.error" },
+        MiniStatuslineModeVisual = { link = "@comment.hint" },
+        MiniStatuslineModeReplace = { link = "@comment.warning" },
+        MiniSatuslineModeOther = { link = "@comment.todo" },
     }
 })
 
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { link = "Pmenu" })
+
 vim.cmd("colorscheme rose-pine")
+
