@@ -1,5 +1,4 @@
 return {
-
     "patrickpichler/hovercraft.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",

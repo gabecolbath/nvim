@@ -1,6 +1,6 @@
 require("mason-lspconfig").setup({})
 
-local capabilities = require("blink.cmp").get_lsp_capabilities()
+local capabilities = require("mini.completion").get_lsp_capabilities()
 
 vim.lsp.config("lua_ls", {
     capabilities = capabilities,
@@ -41,6 +41,7 @@ vim.lsp.config("basedpyright", {
     settings = {
         basedpyright = {
             analysis = {
+                typeCheckingMode = "off",
                 autoSearchPaths = true,
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
@@ -49,6 +50,21 @@ vim.lsp.config("basedpyright", {
     },
 })
 
+vim.lsp.config("clangd", {
+    capabilities = capabilities,
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "obcpp" },
+    root_markers = { ".git" },
+})
+
+vim.lsp.config("rust_analyzer", {
+    capabilities = capabilities,
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+})
+
 vim.lsp.enable("lua_ls", true)
 vim.lsp.enable("zls", true)
 vim.lsp.enable("basedpyright", true)
+vim.lsp.enable("clangd", true)
+vim.lsp.enable("rust_analyzer", true)

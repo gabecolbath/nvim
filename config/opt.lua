@@ -20,3 +20,7 @@ vim.opt.splitbelow = true
 vim.opt.cursorline = true
 vim.opt.hlsearch = false
 vim.opt.scrolloff = 10
+vim.o.pumborder = "single"
+vim.o.pumheight = 12
+vim.o.completeopt = "menuone,noselect"
+vim.o.completeitemalign = "abbr,kind,menu"

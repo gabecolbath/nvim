@@ -22,6 +22,11 @@ rose_pine.setup({
         MiniStatuslineModeVisual = { link = "@comment.hint" },
         MiniStatuslineModeReplace = { link = "@comment.warning" },
         MiniSatuslineModeOther = { link = "@comment.todo" },
+        MiniSnippetsCurrent = { link = "@diff.delta" },
+        MiniSnippetsCurrentReplace = { link = "@diff.delta" },
+        MiniSnippetsVisited = { link = "@comment" },
+        MiniSnippetsUnvisited = { link = "@comment.note" },
+        MiniSnippetsFinal = { link = "@comment.error" },
     }
 })
 
