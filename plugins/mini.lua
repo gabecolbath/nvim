@@ -1,10 +1,10 @@
 local mini = function(name)
     local ok, mod = pcall(require, "mini." .. name)
-    if ok then 
-        return mod 
-    else 
+    if ok then
+        return mod
+    else
         print("Mini module 'mini." .. name .. "' was not found.")
-        return nil 
+        return nil
     end
 end
 
@@ -21,6 +21,7 @@ return {
     {
         "nvim-mini/mini.nvim",
         version= "*",
+        dependencies = { "rafamadriz/friendly-snippets" },
         config = function()
 
             local pairs = mini("pairs")
@@ -103,23 +104,33 @@ return {
                 },
             })
 
-            setup(snippets, {
-                mappings = {
-                    jump_next = "<C-l>",
-                    jump_prev = "<C-h>",
-                    stop = "<C-k>",
-                },
-                expand = {
-                    insert = function(snippet)
-                        if snippets then
-                            return snippets.default_insert(snippet, {
-                                empty_tabstop = "┈┈┈",
-                                empty_tabstop_final = "┈┈┈",
-                            })
-                        end
-                    end,
-                },
-            }, function(mod)
+            setup(snippets, (function()
+                local gen = require("mini.snippets").gen_loader
+                return {
+                    mappings = {
+                        jump_next = "<C-l>",
+                        jump_prev = "<C-h>",
+                        stop = "<C-k>",
+                    },
+                    expand = {
+                        insert = function(snippet)
+                            if snippets then
+                                return snippets.default_insert(snippet, {
+                                    empty_tabstop = "┈┈┈",
+                                    empty_tabstop_final = "┈┈┈",
+                                })
+                            end
+                        end,
+                    },
+                    snippets = {
+                        gen.from_lang(),
+                        gen.from_runtime("html.json"),
+                    },
+                }
+            end)(), function(mod)
+
+                    mod.start_lsp_server({ match = false })
+
                     vim.api.nvim_create_autocmd("ModeChanged", {
                         pattern = { "i:n", "s:n" },
                         callback = function()
@@ -138,6 +149,10 @@ return {
                     completion = 0,
                     info = 0,
                     signature = 0
+                },
+                lsp_completion = {
+                    source_func = "completefunc",
+                    auto_setup = true,
                 },
                 window = {
                     info = { border = "single" },
